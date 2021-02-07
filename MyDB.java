@@ -26,11 +26,16 @@ public class MyDB {
 		for(DBInstance dbInst:dbInstance) {
 			//System.out.println("DB Instance : "+dbInst);
 			System.out.println("DB Instance : "+dbInst.getDBName());
+			System.out.println("Availability zone : "+dbInst.getAvailabilityZone());
+			System.out.println("ARN : "+dbInst.getDBInstanceArn());
+			System.out.println("GetEngine : "+dbInst.getEngine());
+
+		
 		}
 		
-		String hostname = "dbm.cvjhqke4nmzi.ap-south-1.rds.amazonaws.com";
+		String hostname = "demo.cvjhqke4nmzi.ap-south-1.rds.amazonaws.com";
 		String port = "3306";
-		String JDBC_URL = "jdbc:mysql//"+hostname+":"+port+"/demo";
+		String JDBC_URL = "jdbc:mysql://"+hostname+":"+port+"/demo";
 		
 		try
 		{
@@ -41,7 +46,7 @@ public class MyDB {
 		while(result.next()) {
 			String id = result.getString(1);
 			String name = result.getString(2);
-			System.out.println("Id : "+id+"\nName : "+name);
+			System.out.println("Id : "+id+"\tName : "+name);
 		}
 		
 		}
@@ -54,3 +59,12 @@ public class MyDB {
 	}
 
 }
+
+
+/*
+ <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.20</version>
+    </dependency>
+*/
